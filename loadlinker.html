@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoadLinker - B2B Wholesale Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #444;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav .basket {
+            background: #555;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .filter, .signup, .listing {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .filter {
+            flex: 1 1 100%;
+        }
+        .signup {
+            flex: 1 1 30%;
+        }
+        .listing {
+            flex: 1 1 30%;
+        }
+        .listing img {
+            max-width: 100%;
+            height: auto;
+        }
+        .dropdown {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LoadLinker</h1>
+        <p>Your B2B Wholesale Platform</p>
+    </header>
+    <nav>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#listings">Listings</a>
+            <a href="#signup">Sign Up</a>
+        </div>
+        <div class="basket">Basket: $0</div>
+    </nav>
+    <div class="container">
+        <div class="filter">
+            <h2>Filter Listings</h2>
+            <form>
+                <label for="state">State:</label>
+                <select id="state" name="state" class="dropdown">
+                    <option value="">Select State</option>
+                    <option value="CA">California</option>
+                    <option value="TX">Texas</option>
+                    <option value="NY">New York</option>
+                    <!-- Add more states as needed -->
+                </select>
+                <label for="price-range">Price Range:</label>
+                <input type="number" id="min-price" name="min-price" placeholder="Min Price" class="dropdown">
+                <input type="number" id="max-price" name="max-price" placeholder="Max Price" class="dropdown">
+                <label for="category">Product Category:</label>
+                <select id="category" name="category" class="dropdown">
+                    <option value="">Select Category</option>
+                    <option value="computer-office">Computer & Office</option>
+                    <option value="toys-baby">Toys & Baby</option>
+                    <option value="apparel-accessories">Apparel & Accessories</option>
+                    <option value="home-garden">Home & Garden</option>
+                    <option value="everyday-electronics">Everyday Electronics</option>
+                    <option value="miscellaneous">Miscellaneous</option>
+                </select>
+                <label for="load-size">Load Size:</label>
+                <select id="load-size" name="load-size" class="dropdown">
+                    <option value="">Select Load Size</option>
+                    <option value="pallets">Pallets</option>
+                    <option value="half-truckloads">Half Truckloads (12 pallets)</option>
+                    <option value="full-truckloads">Full Truckloads (24 pallets)</option>
+                </select>
+                <button type="submit">Apply Filters</button>
+            </form>
+        </div>
+        <div class="signup">
+            <h2>Sign Up</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required class="dropdown">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required class="dropdown">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required class="dropdown">
+                <label for="role">I want to:</label>
+                <select id="role" name="role" class="dropdown">
+                    <option value="buyer">Buy</option>
+                    <option value="seller">Sell</option>
+                    <option value="both">Both</option>
+                </select>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="listing">
+            <h2>Product Listing</h2>
+            <img src="placeholder.jpg" alt="Product Image">
+            <p><strong>Description:</strong> Example product description here.</p>
+            <p><strong>Price:</strong> $500</p>
+            <p><strong>Location:</strong> Hidden (pay to reveal)</p>
+            <p><strong>Contact Info:</strong> Hidden (pay to reveal)</p>
+        </div>
+    </div>
+    <script>
+        // JavaScript for updating the basket amount
+        let basketTotal = 0;
+
+        function updateBasket(amount) {
+            basketTotal += amount;
+            document.querySelector('.basket').textContent = `Basket: $${basketTotal}`;
+        }
+    </script>
+</body>
+</html>
